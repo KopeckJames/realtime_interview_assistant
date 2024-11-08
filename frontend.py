@@ -36,4 +36,5 @@ with gr.Blocks() as demo:
     set_button.click(set_context, inputs=[job_description, resume_file], outputs=None)
     audio_file.change(transcribe_and_answer, inputs=audio_file, outputs=[transcribed_text, answer_text])
 
-demo.launch()
+demo.launch(server_name="0.0.0.0", server_port=int(os.environ.get("PORT", 8080)))
+
